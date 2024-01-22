@@ -17,12 +17,15 @@ fetch(url)
   });
 
 function showDetails(movie) {
+  let poster = document.getElementById("poster");
   let title = document.getElementById("title");
   let year = document.getElementById("year");
   let rated = document.getElementById("rated");
   let released = document.getElementById("released");
   let runtime = document.getElementById("runtime");
 
+  poster.src = movie.Poster;
+  poster.alt = movie.Title + " Poster";
   title.textContent = "Title: " + movie.Title;
   year.textContent = "Year: " + movie.Year;
   rated.textContent = "Rated: " + movie.Rated;
