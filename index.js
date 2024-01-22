@@ -1,5 +1,3 @@
-const apiUrl = `http://www.omdbapi.com/?apikey=3eb768c3&s=`;
-
 // fetch(apiUrl)
 //   .then((response) => response.json())
 //   .then((data) => {
@@ -12,6 +10,7 @@ const apiUrl = `http://www.omdbapi.com/?apikey=3eb768c3&s=`;
 document.getElementById("button-search").addEventListener("click", findMovie);
 
 function findMovie() {
+  const apiUrl = `http://www.omdbapi.com/?apikey=3eb768c3&s=`;
   let inputElement = document.getElementById("site-search");
   let url = apiUrl + inputElement.value;
   console.log(url);
@@ -30,6 +29,12 @@ function displayMovie(movies) {
   let resultContainer = document.getElementById("resultContainer");
   for (let i = 0; i < movies.length; i++) {
     let movieElements = document.createElement("div");
+    document;
+    movieElements.addEventListener("click", function () {
+      let movieID = movies[i].imdbID;
+      window.location.replace(`moviePage.html?apikey=3eb768c3&i=` + movieID);
+    });
+
     let titleElement = document.createElement("h3");
     titleElement.textContent = movies[i].Title;
 
