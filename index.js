@@ -27,11 +27,23 @@ function findMovie() {
 }
 
 function displayMovie(movies) {
-  let moviesList = document.getElementById("moviesList");
+  let resultContainer = document.getElementById("resultContainer");
   for (let i = 0; i < movies.length; i++) {
-    let movieElements = document.createElement("li");
-    movieElements.textContent = movies[i].Title;
-    moviesList.appendChild(movieElements);
+    let movieElements = document.createElement("div");
+    let titleElement = document.createElement("h3");
+    titleElement.textContent = movies[i].Title;
+
+    let yearElement = document.createElement("p");
+    yearElement.textContent = "Year: " + movies[i].Year;
+
+    let posterElement = document.createElement("img");
+    posterElement.src = movies[i].Poster;
+
+    movieElements.appendChild(titleElement);
+    movieElements.appendChild(yearElement);
+    movieElements.appendChild(posterElement);
+
+    resultContainer.appendChild(movieElements);
   }
   console.log(movies);
 }
