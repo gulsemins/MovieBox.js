@@ -33,7 +33,13 @@ function showDetails(movie) {
   }
 
   watchedButton.addEventListener("click", () => {
-    localStorage.setItem(movieId, "");
+    if (localStorage.getItem(movieId) == "watched") {
+      localStorage.removeItem(movieId);
+      watchedButton.textContent = "Mark watched";
+    } else {
+      localStorage.setItem(movieId, "watched");
+      watchedButton.textContent = "watched";
+    }
   });
   poster.src = movie.Poster;
   poster.alt = movie.Title + " Poster";
