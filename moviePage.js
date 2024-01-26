@@ -1,9 +1,9 @@
 const apiUrl = `http://www.omdbapi.com/?apikey=3eb768c3&plot=full&i=`;
 
 const urlParams = new URLSearchParams(window.location.search);
-const myParam = urlParams.get("i");
+const movieId = urlParams.get("i");
 
-let url = apiUrl + myParam;
+let url = apiUrl + movieId;
 console.log(url);
 
 fetch(url)
@@ -27,6 +27,14 @@ function showDetails(movie) {
   let genre = document.getElementById("genreMovie");
   let imdb = document.getElementById("imdbRating");
 
+  let watchedButton = document.getElementById("toggle-watched-button");
+  if (localStorage.getItem(movieId) != null) {
+    watchedButton.textContent = "watched";
+  }
+
+  watchedButton.addEventListener("click", () => {
+    localStorage.setItem(movieId, "");
+  });
   poster.src = movie.Poster;
   poster.alt = movie.Title + " Poster";
   title.textContent = movie.Title;

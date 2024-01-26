@@ -33,16 +33,15 @@ function displayMovie(movies) {
   resultContainer.innerHTML = "";
   for (let i = 0; i < movies.length; i++) {
     let movieElements = document.createElement("div");
-    document;
+
     movieElements.classList.add("movie-elements");
     movieElements.addEventListener("click", function () {
       let movieID = movies[i].imdbID;
-      window.location.replace(`moviePage.html?apikey=3eb768c3&i=` + movieID);
+      window.location.replace(`moviePage.html?i=` + movieID);
     });
 
     let titleElement = document.createElement("h3");
     titleElement.textContent = movies[i].Title;
-
     let yearElement = document.createElement("p");
     yearElement.textContent = "Year: " + movies[i].Year;
 
@@ -58,3 +57,7 @@ function displayMovie(movies) {
   }
   console.log(movies);
 }
+document.getElementById("button-search").addEventListener("click", () => {
+  window.location.replace("search.html?s=" + inputElement.value);
+});
+let inputElement = document.getElementById("site-search");
