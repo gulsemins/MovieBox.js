@@ -1,0 +1,116 @@
+body {
+    
+    background-color: #21282e ;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.topnav {
+    background-color: #14181c;
+    overflow: hidden;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+   
+  }
+  .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav input[type="search"] {
+    padding: 8px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-left: 30px;
+  }
+  
+  #button-search {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    
+  }
+  
+  #button-search:hover {
+    background-color: #45a049;
+  }
+#movie-page-wrapper {
+    display: flex;
+    margin: 80px auto;
+    color: #778899;
+    max-width: 900px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#poster-col {
+    margin-right: 20px;
+}
+
+.poster-list img {
+   margin: 80px;
+    height: 300px;
+    margin-bottom: 0px;
+    
+    
+}
+
+#movie-header {
+    background-color: #21282e;
+    padding: 20px;
+    
+    
+}
+
+#movieInfoHeader h1 {
+    font-size: 28px;
+    margin: 0;
+ 
+}
+
+.col-main {
+    background-color: #21282e;
+    padding: 20px;
+   
+}
+
+#movieInfo {
+    
+    padding: 20px;
+    margin-top: 20px;
+    
+
+}
+
+#movieInfo h2 {
+    font-size: 24px;
+    margin: 0;
+   
+}
+#title{
+    color: white;
+    font-family: Georgia;
+}.w3-button{
+
+    background-color: #14883b;
+    border-radius: 8px;
+    color: white;
+}
+#imdbRating{
+  margin-left: 80px;
+
+}

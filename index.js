@@ -27,9 +27,11 @@ function findMovie() {
 
 function displayMovie(movies) {
   let resultContainer = document.getElementById("resultContainer");
+  resultContainer.innerHTML = "";
   for (let i = 0; i < movies.length; i++) {
     let movieElements = document.createElement("div");
     document;
+    movieElements.classList.add("movie-elements");
     movieElements.addEventListener("click", function () {
       let movieID = movies[i].imdbID;
       window.location.replace(`moviePage.html?apikey=3eb768c3&i=` + movieID);
@@ -43,6 +45,7 @@ function displayMovie(movies) {
 
     let posterElement = document.createElement("img");
     posterElement.src = movies[i].Poster;
+    posterElement.classList.add("movie-poster");
 
     movieElements.appendChild(titleElement);
     movieElements.appendChild(yearElement);

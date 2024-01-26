@@ -1,4 +1,89 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
 
 #button-search{
     background-color: rgb(160, 160, 198);
 }
+#resultContainer{
+    background-color: #1d232a;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.movie-poster {
+    width: 100px; /* Set the desired width */
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 150px; /* Set the maximum height if needed */
+    border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+  }
+  .movie-elements {
+    border-bottom: 0.1px ridge #ddd; /* Adjust the thickness of the line (e.g., 0.5px) */
+    padding-bottom: 3px; /* Adjust the padding as needed */
+    width: 50%;
+    color: white;
+  }
+  .topnav {
+    background-color: #14181c;
+    overflow: hidden;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+  .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav input[type="search"] {
+    padding: 8px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+  
+  #button-search {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  
+  #button-search:hover {
+    background-color: #45a049;
+  }
+  
+  .cols-3 {
+    display: flex;
+  }
+  
+  .col-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #1d232a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  
+  
+  
+  
