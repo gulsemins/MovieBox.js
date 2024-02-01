@@ -114,3 +114,8 @@ body {
   margin-left: 80px;
 
 }
+#toggle-watched-button{
+  border-radius: 8px;
+  margin: 10px
+  
+}
