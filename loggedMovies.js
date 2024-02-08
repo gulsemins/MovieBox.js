@@ -31,8 +31,12 @@ for (let i = 0; i < ids.length; i++) {
       posterElement.classList.add("movie-poster");
       listItem.appendChild(idElement);
       listItem.appendChild(posterElement);
-
       moviesList.appendChild(listItem);
+
+      posterElement.addEventListener("click", function () {
+        let movieID = ids[i];
+        window.location.replace(`moviePage.html?i=` + movieID);
+      });
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
