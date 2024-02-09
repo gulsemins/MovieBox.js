@@ -28,18 +28,37 @@ function showDetails(movie) {
   let imdb = document.getElementById("imdbRating");
 
   let watchedButton = document.getElementById("toggle-watched-button");
-  if (localStorage.getItem(movieId) != null) {
+  let watchedIds = localStorage.getItem("watched");
+
+  if (watchedIds == null) {
+    watchedIds = [];
+  } else {
+    watchedIds = JSON.parse(watchedIds);
+  }
+  if (watchedIds.includes(movieId)) {
     watchedButton.textContent = "watched";
   }
 
   watchedButton.addEventListener("click", () => {
-    if (localStorage.getItem(movieId) == "watched") {
-      localStorage.removeItem(movieId);
-      watchedButton.textContent = "Mark watched";
+    let watchedIds = localStorage.getItem("watched");
+
+    if (watchedIds == null) {
+      watchedIds = [];
     } else {
-      localStorage.setItem(movieId, "watched");
-      watchedButton.textContent = "watched";
+      watchedIds = JSON.parse(watchedIds);
     }
+    let movieIdIndex = watchedIds.indexOf(movieId);
+    if (movieIdIndex == -1) {
+      watchedIds.push(movieId);
+      watchedButton.textContent = "watched";
+    } else {
+      watchedIds.splice(movieIdIndex, 1);
+      watchedButton.textContent = "Mark watched";
+    }
+
+    localStorage.setItem("watched", JSON.stringify(watchedIds));
+
+    console.log(watchedIds);
   });
   poster.src = movie.Poster;
   poster.alt = movie.Title + " Poster";
