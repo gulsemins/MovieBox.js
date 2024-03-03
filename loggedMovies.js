@@ -3,7 +3,7 @@ document.getElementById("button-search").addEventListener("click", () => {
 });
 let inputElement = document.getElementById("site-search");
 
-let ids = Object.keys(localStorage);
+let ids = JSON.parse(localStorage.getItem("watched"));
 
 console.log(ids);
 const moviesList = document.getElementById("movies-list"); //
@@ -23,7 +23,7 @@ for (let i = 0; i < ids.length; i++) {
       let movieContainer = document.createElement("div");
       movieContainer.classList.add("movie-container");
       let listItem = document.createElement("li");
-      let movieID = ids[i];
+
       let idElement = document.createElement("span");
 
       let posterElement = document.createElement("img");

@@ -28,14 +28,16 @@ function showDetails(movie) {
   let imdb = document.getElementById("imdbRating");
 
   let watchedButton = document.getElementById("toggle-watched-button");
-  let watchedIds = localStorage.getItem("watched");
+  let watchedIds = localStorage.getItem("watched"); // localstorage da watched olanı alıyoruz
 
   if (watchedIds == null) {
-    watchedIds = [];
+    // eğer nullsa yani böyle bir değer yoksa, bu da genelde hiç bir giriş yapılmamış olduğu zaman olur yeni bir kullanıcı old için
+    watchedIds = []; // boş bir arraye atıyoruz
   } else {
-    watchedIds = JSON.parse(watchedIds);
+    watchedIds = JSON.parse(watchedIds); //watchedIds parse ediyoruz yani anlıyor ve localstorage da string olarak aldığımız için bunu anlayp array e çeviriyor
   }
   if (watchedIds.includes(movieId)) {
+    // include sadece arraylerde kullanabiliriz
     watchedButton.textContent = "watched";
   }
 
@@ -49,6 +51,7 @@ function showDetails(movie) {
     }
     let movieIdIndex = watchedIds.indexOf(movieId);
     if (movieIdIndex == -1) {
+      // movieId eğer watchedIds de yoksa
       watchedIds.push(movieId);
       watchedButton.textContent = "watched";
     } else {
@@ -56,9 +59,34 @@ function showDetails(movie) {
       watchedButton.textContent = "Mark watched";
     }
 
-    localStorage.setItem("watched", JSON.stringify(watchedIds));
-
+    localStorage.setItem("watched", JSON.stringify(watchedIds)); // sayfada güncelledik local storage da güncellemek için bunu yapıyoruz.
+    // setitem bir değer varsa değiştiriyor, yoksa ekliyor
     console.log(watchedIds);
+  });
+  let favButton = document.getElementById("toggle-fav-button");
+  favButton.addEventListener("click", () => {
+    let favIds = localStorage.getItem("favorites");
+
+    if (favIds == null) {
+      favIds = [];
+    } else {
+      favIds = JSON.parse(favIds);
+    }
+
+    if (favIds.includes(movieId)) {
+      favButton.textContent = "add favorites";
+    }
+    let favMovieIdIndex = favIds.indexOf(movieId);
+    if (favMovieIdIndex == -1) {
+      favIds.push(movieId);
+      favButton.textContent = "add favorites";
+    } else {
+      favIds.splice(favMovieIdIndex, 1);
+      favButton.textContent = "remove favorites";
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favIds));
+    console.log(favIds);
   });
   poster.src = movie.Poster;
   poster.alt = movie.Title + " Poster";
@@ -72,6 +100,7 @@ function showDetails(movie) {
 
   actor.textContent = movie.Actors;
 }
+
 function openCity(cityName) {
   var i;
   var x = document.getElementsByClassName("city");
